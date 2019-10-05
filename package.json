@@ -71,7 +71,7 @@
     "webpack": "^1.13.0"
   },
   "dependencies": {
-    "htmlparser2": "^3.9.0"
+    "htmlparser2": "^4"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0-0"
