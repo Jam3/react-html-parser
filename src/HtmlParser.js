@@ -1,4 +1,4 @@
-import htmlparser2 from 'htmlparser2';
+import { parseDOM } from 'htmlparser2';
 import processNodes from './processNodes';
 
 /**
@@ -8,11 +8,10 @@ import processNodes from './processNodes';
  * @param {Object} options Options to pass
  * @returns {Array} List of top level React elements
  */
-export default function HtmlParser(html, {
-  decodeEntities = true,
-  transform,
-  preprocessNodes = nodes => nodes
-}={}) {
-  const nodes = preprocessNodes(htmlparser2.parseDOM(html, { decodeEntities }));
+export default function HtmlParser(
+  html,
+  { decodeEntities = true, transform, preprocessNodes = nodes => nodes } = {}
+) {
+  const nodes = preprocessNodes(parseDOM(html, { decodeEntities }));
   return processNodes(nodes, transform);
 }
