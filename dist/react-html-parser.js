@@ -79,22 +79,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 
-	var _htmlparser = __webpack_require__(4);
-
-	Object.defineProperty(exports, 'htmlparser2', {
-	  enumerable: true,
-	  get: function get() {
-	    return _interopRequireDefault(_htmlparser).default;
-	  }
-	});
-
 	var _HtmlParser = __webpack_require__(21);
 
 	var _HtmlParser2 = _interopRequireDefault(_HtmlParser);
 
+	var _htmlparser = __webpack_require__(4);
+
+	var htmlparser2 = _interopRequireWildcard(_htmlparser);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _HtmlParser2.default;
+
+
+	// expose htmlparser2 so it can be used if required
+	exports.htmlparser2 = htmlparser2;
 
 /***/ }),
 /* 1 */
@@ -2272,8 +2273,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _htmlparser = __webpack_require__(4);
 
-	var _htmlparser2 = _interopRequireDefault(_htmlparser);
-
 	var _processNodes = __webpack_require__(2);
 
 	var _processNodes2 = _interopRequireDefault(_processNodes);
@@ -2297,7 +2296,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return nodes;
 	  } : _ref$preprocessNodes;
 
-	  var nodes = preprocessNodes(_htmlparser2.default.parseDOM(html, { decodeEntities: decodeEntities }));
+	  var nodes = preprocessNodes((0, _htmlparser.parseDOM)(html, { decodeEntities: decodeEntities }));
 	  return (0, _processNodes2.default)(nodes, transform);
 	}
 
